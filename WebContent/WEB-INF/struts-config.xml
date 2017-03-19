@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+
+
+		<!-- THEM SINH VIEN -->
+		<form-bean name="themSinhVienForm" type="form.ThemSinhVienForm" />
+
+		<!-- LIEKT KE SINH VIEN -->
+		<form-bean name="lietKeSinhVienForm" type="form.LietKeSinhVienForm" />
+
+		<!-- LIEKT KE SINH VIEN NANG CAO -->
+		<form-bean name="lietKeSinhVienNangCaoForm" type="form.LietKeSinhVienNangCaoForm" />
+
+	</form-beans>
+	<action-mappings>
+
+		<!-- Them moi sinh vien -->
+		<action input="/index.jsp" name="themSinhVienForm" path="/them-sinh-vien-action"
+			scope="request" type="action.ThemSinhVienAction">
+			<forward name="them" path="/themsv.jsp" />
+			<forward name="daThem" path="/liet-ke-action.do" redirect="true" />
+		</action>
+
+		<!-- Liet ke sinh vien -->
+		<action input="/index.jsp" name="lietKeSinhVienForm" path="/liet-ke-action"
+			scope="request" type="action.LietKeSinhVienAction">
+			<forward name="lietKe" path="/lietke.jsp" />
+		</action>
+
+		<!-- Liet ke sinh vien nang cao -->
+		<action input="/index.jsp" name="lietKeSinhVienNangCaoForm" path="/liet-ke-nang-cao-action"
+			scope="request" type="action.LietKeSinhVienNangCaoAction">
+			<forward name="lietKeNangCao" path="/lietkenangcao.jsp" />
+		</action>
+
+
+	</action-mappings>
+	<!-- File nay de bao loi -->
+	<message-resources parameter="statics.ThongBao" />
+
+</struts-config>
