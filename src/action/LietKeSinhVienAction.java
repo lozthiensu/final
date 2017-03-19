@@ -33,7 +33,7 @@ public class LietKeSinhVienAction extends Action {
 		
 		// "" la chuoi rong
 		// Neu tu khoa = chuoi rong, thi lay tat ca sinh vien, nguoc lai thi tim theo tuKhoa
-		if("".equals(tuKhoa)){
+		if(tuKhoa == null || tuKhoa.length() < 1){
 			sinhViens = sinhVienBO.lietKe();
 		}else{
 			sinhViens = sinhVienBO.lietKe(tuKhoa);
